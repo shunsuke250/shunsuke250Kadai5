@@ -22,6 +22,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func didTapCalculateButton(_ sender: UIButton) {
+        divisionResult()
+    }
+
+    private func divisionResult() {
         guard let dividendNum = Double(dividendNumTextField.text ?? ""),
               let divisorNum = Double(divisorNumTextField.text ?? "")
         else { return }
