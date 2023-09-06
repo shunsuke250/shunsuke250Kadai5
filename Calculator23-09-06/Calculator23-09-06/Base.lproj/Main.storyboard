@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="6N2-DS-FiA">
-                                <rect key="frame" x="51" y="247.66666666666663" width="291.33333333333331" height="34"/>
+                                <rect key="frame" x="51" y="209" width="291.33333333333331" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zeH-A6-COZ">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="34"/>
@@ -44,9 +44,12 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAp-8b-gAq">
-                                <rect key="frame" x="159" y="331.66666666666669" width="75" height="34.333333333333314"/>
+                                <rect key="frame" x="159" y="293" width="75" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="didTapCalculateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9ta-Wn-JHb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC1-Ih-PQR">
                                 <rect key="frame" x="176" y="416" width="41.333333333333343" height="20.333333333333314"/>
@@ -58,14 +61,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="sAp-8b-gAq" firstAttribute="top" secondItem="6N2-DS-FiA" secondAttribute="bottom" constant="50" id="3fR-0v-aY5"/>
                             <constraint firstItem="RC1-Ih-PQR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5td-5B-Ncn"/>
-                            <constraint firstItem="RC1-Ih-PQR" firstAttribute="top" secondItem="sAp-8b-gAq" secondAttribute="bottom" constant="50" id="aPa-MZ-MkQ"/>
+                            <constraint firstItem="sAp-8b-gAq" firstAttribute="top" secondItem="6N2-DS-FiA" secondAttribute="bottom" constant="50" id="WKN-0b-UGX"/>
                             <constraint firstItem="6N2-DS-FiA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mdQ-EE-dIc"/>
                             <constraint firstItem="RC1-Ih-PQR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oFN-d3-QAX"/>
+                            <constraint firstItem="6N2-DS-FiA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="tIj-4b-BxQ"/>
                             <constraint firstItem="sAp-8b-gAq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vw3-xH-9Ay"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calculateButton" destination="sAp-8b-gAq" id="xDp-9R-S9c"/>
+                        <outlet property="calculateResultLabel" destination="RC1-Ih-PQR" id="pyT-2R-7bh"/>
+                        <outlet property="dividendNumTextField" destination="zeH-A6-COZ" id="dIn-uO-d7C"/>
+                        <outlet property="divisionLabel" destination="kN1-e5-rVw" id="U3G-r2-cBe"/>
+                        <outlet property="divisorNumTextField" destination="Kj7-X8-9Y6" id="9Sv-Tb-ntu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
