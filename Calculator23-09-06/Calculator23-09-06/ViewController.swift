@@ -16,8 +16,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        divisionLabel.text = "÷"
-        calculateButton.setTitle("計算", for: .normal)
         calculateResultLabel.text = ""
     }
 
