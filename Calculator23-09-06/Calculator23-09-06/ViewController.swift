@@ -26,25 +26,25 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func didTapCalculateButton(_ sender: UIButton) {
-        guard let dividendNum = dividendNumTextField.text,
-              let divisorNum = divisorNumTextField.text
+        guard let dividendText = dividendNumTextField.text,
+              let divisorText = divisorNumTextField.text
         else { return }
 
-        if dividendNum == "" {
+        if dividendText == "" {
             alert(message: ErrorMessage.invalidDividend.rawValue)
 
             return
-        } else if divisorNum == "" {
+        } else if divisorText == "" {
             alert(message: ErrorMessage.invalidDivisor.rawValue)
 
             return
-        } else if divisorNum == "0" {
+        } else if divisorText == "0" {
             alert(message: ErrorMessage.zeroDivisor.rawValue)
 
             return
         }
 
-        let result = (Double(dividendNum) ?? 0) / (Double(divisorNum) ?? 0 )
+        let result = (Double(dividendText) ?? 0) / (Double(divisorText) ?? 0 )
         calculateResultLabel.text = "\(result)"
 
     }
