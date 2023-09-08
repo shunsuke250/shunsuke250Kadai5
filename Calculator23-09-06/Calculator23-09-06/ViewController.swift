@@ -14,6 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet private weak var calculateButton: UIButton!
     @IBOutlet private weak var calculateResultLabel: UILabel!
 
+    enum ErrorMessage: String {
+        case invalidDividend = "割られる数を入力してください"
+        case invalidDivisor = "割る数を入力してください"
+        case zeroDivisor = "割る数には0を入力しないでください"
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         calculateResultLabel.text = ""
@@ -25,15 +31,15 @@ class ViewController: UIViewController {
         else { return }
 
         if dividendNum == "" {
-            alert(message: "割られる数を入力してください")
+            alert(message: ErrorMessage.invalidDividend.rawValue)
 
             return
         } else if divisorNum == "" {
-            alert(message: "割る数を入力してください")
+            alert(message: ErrorMessage.invalidDivisor.rawValue)
 
             return
         } else if divisorNum == "0" {
-            alert(message: "割る数には0を入力しないでください")
+            alert(message: ErrorMessage.zeroDivisor.rawValue)
 
             return
         }
