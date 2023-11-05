@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet private weak var calculateButton: UIButton!
     @IBOutlet private weak var calculateResultLabel: UILabel!
 
-    enum ErrorMessage: String {
-        case invalidDividend = "割られる数を入力してください"
-        case invalidDivisor = "割る数を入力してください"
-        case zeroDivisor = "割る数には0を入力しないでください"
+    enum ErrorMessage {
+        static let invalidDividend = "割られる数を入力してください"
+        static let invalidDivisor = "割る数を入力してください"
+        static let zeroDivisor = "割る数には0を入力しないでください"
     }
 
     override func viewDidLoad() {
@@ -26,25 +26,22 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func didTapCalculateButton(_ sender: UIButton) {
-        guard let dividendText = dividendNumTextField.text,
-              let divisorText = divisorNumTextField.text
-        else { return }
-
-        if dividendText == "" {
-            alert(message: ErrorMessage.invalidDividend.rawValue)
-
-            return
-        } else if divisorText == "" {
-            alert(message: ErrorMessage.invalidDivisor.rawValue)
-
-            return
-        } else if divisorText == "0" {
-            alert(message: ErrorMessage.zeroDivisor.rawValue)
-
+        guard let dividend = Double(dividendNumTextField.text ?? "") else {
+            alert(message: ErrorMessage.invalidDividend)
             return
         }
 
-        let result = (Double(dividendText) ?? 0) / (Double(divisorText) ?? 0 )
+        guard let divisor = Double(divisorNumTextField.text ?? "") else {
+            alert(message: ErrorMessage.invalidDivisor)
+            return
+        }
+
+        guard divisor != 0 else {
+            alert(message: ErrorMessage.zeroDivisor)
+            return
+        }
+
+        let result = dividend / divisor
         calculateResultLabel.text = "\(result)"
 
     }
